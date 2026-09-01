@@ -6,11 +6,10 @@ import org.junit.jupiter.api.Test;
 import static io.restassured.RestAssured.*;
 import static org.hamcrest.Matchers.*;
 
-class OrderTests {
+class OrderTests extends BaseTest {
 
     @Test
     void shouldCreateOrder() {
-        RestAssured.baseURI = "https://dummyjson.com";
 
         given()
                 .contentType("application/json")
@@ -37,7 +36,6 @@ class OrderTests {
 
     @Test
     void shouldRejectInvalidProductId() {
-        RestAssured.baseURI = "https://dummyjson.com";
 
         given()
                 .contentType("application/json")
