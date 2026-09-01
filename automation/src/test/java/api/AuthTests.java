@@ -6,11 +6,10 @@ import org.junit.jupiter.api.Test;
 import static io.restassured.RestAssured.*;
 import static org.hamcrest.Matchers.*;
 
-class AuthTests {
+class AuthTests extends BaseTest {
 
     @Test
     void shouldLoginWithValidCredentials() {
-        RestAssured.baseURI = "https://dummyjson.com";
 
         given()
                 .contentType("application/json")
@@ -30,7 +29,6 @@ class AuthTests {
 
     @Test
     void shouldRejectInvalidCredentials() {
-        RestAssured.baseURI = "https://dummyjson.com";
 
         given()
                 .contentType("application/json")
