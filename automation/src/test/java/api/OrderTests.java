@@ -1,16 +1,14 @@
 package api;
 
-import io.restassured.RestAssured;
 import org.junit.jupiter.api.Test;
 
-import static io.restassured.RestAssured.*;
+import static io.restassured.RestAssured.given;
 import static org.hamcrest.Matchers.*;
 
 class OrderTests extends BaseTest {
 
     @Test
-    void shouldCreateOrder() {
-
+    void shouldCreateCart() {
         given()
                 .contentType("application/json")
                 .body("""
@@ -35,8 +33,7 @@ class OrderTests extends BaseTest {
     }
 
     @Test
-    void shouldRejectInvalidProductId() {
-
+    void shouldReturnErrorForInvalidProduct() {
         given()
                 .contentType("application/json")
                 .body("""
